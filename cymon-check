@@ -1,0 +1,60 @@
+#!/usr/bin/python3
+
+from __future__ import print_function
+import argparse
+import hashlib
+import os
+import requests
+import urllib
+import json
+import simplejson
+from cymon import Cymon
+
+__authors__ = [ "Brian Laskowski" ]
+
+__date__ = "09-05-18"
+
+__description__ = "Script to check Cymon for IoC's"
+
+parser = argparse.ArgumentParser(
+	description=__description__,
+	epilog="Developed by {} on {}".format(", ".join(__authors__), __date__)
+)
+
+api = Cymon()
+
+parser.add_argument("-u","--url", help="Url to scan in cymon")
+parser.add_argument("-i","--ip", help="IP to check in cymon")
+parser.add_argument("-ha","--hash", help="Search a hash in cymon")
+parser.add_argument("-d","--domain", help="Domain to check in cymon")
+args = parser.parse_args()
+
+###Url check
+if args.url:
+    scanUrl = args.url
+    try:
+        cymoncheck = api.url_lookup(scanUrl)
+        print(simplejson.dumps(cymoncheck, indent=4))
+    except:
+        print('nothing found\n')
+
+
+###IP check
+if args.ip:
+    scanip = args.ip
+    cymoncheck = api.ip_events(scanip)
+    print(simplejson.dumps(cymoncheck, indent=4))
+
+
+###Hash check
+if args.hash:
+    print(testing)
+
+###Domain check
+if args.domain:
+    scanDomain = args.domain
+    try:
+        cymoncheck = api.domain_lookup(scanDomain)
+        print(simplejson.dumps(cymoncheck, indent=4))
+    except:
+        print('nothing found\n')

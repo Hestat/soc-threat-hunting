@@ -1,0 +1,16 @@
+argparse
+cymon
+domaincytrack
+__future__
+get_malicious
+hashlib
+IndicatorTypes
+json
+os
+OTXv2
+re
+requests
+simplejson
+sys
+urllib
+urllib.parse
