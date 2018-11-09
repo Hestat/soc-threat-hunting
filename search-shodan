@@ -1,0 +1,49 @@
+#!/usr/bin/python3
+
+import shodan
+import argparse
+
+__authors__ = [ "Brian Laskowski" ]
+
+__date__ = "11-8-18"
+
+__description__ = "Script to check against Shodan"
+
+SHODAN_API_KEY = "Put your api key here"
+
+parser = argparse.ArgumentParser(
+	description=__description__,
+	epilog="Developed by {} on {}".format(", ".join(__authors__), __date__)
+)
+
+api = shodan.Shodan(SHODAN_API_KEY)
+
+header = "================================================================================"
+
+#Arguments
+parser.add_argument("-i","--ip",help="IP to check in Shodan")
+args = parser.parse_args()
+
+# Lookup the host
+if args.ip:
+    try:
+        host = api.host(args.ip)
+
+# Print general info
+        print(header)
+        print("""
+                IP: {}
+                Organization: {}
+                Operating System: {}
+        """.format(host['ip_str'], host.get('org', 'n/a'), host.get('os', 'n/a')))
+
+# Print all banners
+        for item in host['data']:
+                print("""
+                        Port: {}
+                        Banner: {}
+
+                """.format(item['port'], item['data']))
+        print(header)
+    except:
+        print("\nNo information available for that IP\n")
