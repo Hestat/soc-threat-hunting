@@ -1,0 +1,28 @@
+#!/bin/bash
+###Formating###
+
+####VARS###
+
+
+
+###Functions###
+apirequest(){
+	curl -s -XPOST -d "ip=$IP" 'http://api.greynoise.io:8888/v1/query/ip' | json_pp | pygmentize -l json -O style=fruity
+}
+
+
+###Main###
+while getopts "hi:" opt; do
+	case ${opt} in
+		h)
+			echo -e "\n Script to check IP for scanning behavior in GreyNoise"
+			echo -e "\n	 -i IP to check if ip is in Greynoise.io dataset\n"
+			exit 0;;
+
+		i)
+			IP=$OPTARG
+			apirequest
+			exit 0;;
+
+	esac
+done
