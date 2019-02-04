@@ -54,23 +54,6 @@ Developed by Brian Laskowski on 09-04-18
 
 ####################################################
 
-usage: urlscan [-h] {init,scan,search,retrieve} ...
-
-Wrapper for urlscan.io's API
-
-positional arguments:
-  {init,scan,search,retrieve}
-                        commands
-    init                initialize urlscan-py with API key
-    scan                scan a url
-    search              search database for UUID of url
-    retrieve            retrieve scan results
-
-optional arguments:
-  -h, --help            show this help message and exit
-
-####################################################
-
 usage: shodan [-h] [-i IP]
 
 Script to check against Shodan
@@ -80,5 +63,18 @@ optional arguments:
   -i IP, --ip IP  IP to check in Shodan
 
 Developed by Brian Laskowski on 11-8-18
+
+####################################################
+
+usage: abuse-mail-check.py [-h]
+
+Script to scrap safelinks from emails and scan via Urlscan.io Virustotal and
+Talos Reputation Database. Takes input from the Copy/Paste Buffer, no aruments
+necessary
+
+optional arguments:
+  -h, --help  show this help message and exit
+
+Developed by Brian Laskowski on 02-03-19
 
 ####################################################
