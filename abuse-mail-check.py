@@ -67,6 +67,13 @@ try:
     #save unsafe link
     scanTarget = final2[0]
 
+    #check that safelink decode worked and if not allow analyst to add proper url
+    urlConfirm = input('\nIs this the URL to check? [y/n]')
+    if urlConfirm == "n" or urlConfirm == "N":
+        scanTarget = input('Please enter the URL you want to scan now:\n')
+    else:
+        pass
+
     #set Talos Rep DB site url
     talosSite = str('https://www.talosintelligence.com/reputation_center/lookup?search=')
 
