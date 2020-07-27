@@ -24,7 +24,7 @@ while true; do
     -u|--url)
       URL=$2; shift 2
       echo -e "=== Select a User Agent to Mask as ===\n"
-      select opt in win10edge bitsadmin emotet quit;do
+      select opt in win10edge bitsadmin powershell emotet quit;do
 	      case $opt in 
 		      	win10edge)
 			UA="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36 Edge/12.246"
@@ -32,6 +32,8 @@ while true; do
 		      	bitsadmin)
 		      	UA="Microsoft BITS/7.8"
 			break;;
+			powershell)
+			UA="Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0"
 			emotet)
 			UA="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
 			break;;
