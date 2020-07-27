@@ -34,6 +34,7 @@ while true; do
 			break;;
 			powershell)
 			UA="Mozilla/5.0 (Windows NT 10.0; Microsoft Windows 10.0.15063; en-US) PowerShell/6.0.0"
+			break;;
 			emotet)
 			UA="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
 			break;;
