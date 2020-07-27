@@ -32,9 +32,6 @@ while true; do
 		      	bitsadmin)
 		      	UA="Microsoft BITS/7.8"
 			break;;
-			powershell)
-			UA="PowerShell"
-			break;;
 			emotet)
 			UA="Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.2; WOW64; Trident/7.0; .NET4.0C; .NET4.0E)"
 			break;;
